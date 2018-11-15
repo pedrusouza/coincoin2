@@ -3,6 +3,7 @@
 	index();
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +18,9 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="../assets/plugins/datatables/dataTables.bootstrap4.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -33,7 +34,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="../assets/index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contato</a>
@@ -72,8 +73,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png"
+    <a href="../assets/index3.html" class="brand-link">
+      <img src="coincoin.jpg"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -85,10 +86,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        
         </div>
         <div class="info">
-          <a href="#" class="d-block">César</a>
+          <a href="#" class="d-block">Olá, César</a>
         </div>
       </div>
 
@@ -107,13 +108,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="../assets/index.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Usuários aprovados</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="../assets/index2.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Usuários a aprovar</p>
                 </a>
@@ -121,7 +122,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="../assets/pages/widgets.html" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Lojistas
@@ -209,11 +210,16 @@
                 <?php if ($usuarios) : ?>
                	<?php foreach ($usuarios as $usuario) : ?>
                 <tr>
-                  <td><?php echo $usuario['id']; ?></td>
                   <td><?php echo $usuario['nome']; ?></td>
                   <td><?php echo $usuario['cpf']; ?></td>
                   <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right"> </td>
+                  <td class="actions text-right"> 
+
+                        <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
+                        <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>       
+                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['nome']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
+
+                  </td>
 
                 </tr>
 
@@ -227,9 +233,7 @@
    </tbody>
 </table>
 
-                </tr>
-                </tfoot>
-              </table>
+ <?php include('modal.php'); ?>
             </div>
             <!-- /.card-body -->
           </div>
@@ -258,21 +262,25 @@
 </div>
 <!-- ./wrapper -->
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php echo BASEURL; ?>js/jquery-1.11.2.min.js"><\/script>')</script>
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap4.js"></script>
+<script src="../assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../assets/plugins/datatables/dataTables.bootstrap4.js"></script>
 <!-- SlimScroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script src="../assets/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../assets/dist/js/demo.js"></script>
+
+<script src="../assets/dist/js/main.js"></script>
 <!-- page script -->
 <script>
   $(function () {

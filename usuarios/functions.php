@@ -11,3 +11,13 @@
 			global $usuarios;		
 			$usuarios = find_all('usuarios');	
 }	
+
+	/* Exclusão de um usuário */
+
+	function delete ($id = null) {
+
+		global $usuario;
+		$usuario = remove('usuarios', $id);
+
+		header('location: index.php');
+	}

@@ -34,7 +34,7 @@ function find($table = null, $id = null ) {
 
 	try {
 		if($id) {
-			$sql = "SELECT * FROM ".$table."WHERE id = ".$id;
+			$sql = "SELECT * FROM ".$table." WHERE id = ".$id;
 			$result = $database->query($sql);
 
 		if($result->num_rows > 0) {
@@ -49,7 +49,10 @@ function find($table = null, $id = null ) {
 
 		if($result->num_rows > 0) {
 
-			$found = $result->fetch_all(MYSQL_ASSOC);
+	        $found = array();	
+
+	        while ($row = $result->fetch_assoc()) {	          
+	        	array_push($found, $row);	        } 
 		}
 	}
 	} catch (Exception $e) {
@@ -64,4 +67,24 @@ function find($table = null, $id = null ) {
 function find_all( $table ) {
 
 	return find($table);
+}
+
+function remove( $table = null, $id = null ) {		
+  $database = open_database();			  
+
+  try {	  
+    if ($id) {		
+        $sql = "DELETE FROM " . $table . " WHERE id = " . $id;	      
+        $result = $database->query($sql);		      
+
+        if ($result = $database->query($sql)) {   		     
+            $_SESSION['message'] = "Registro Removido com Sucesso.";	       
+            $_SESSION['type'] = 'success';	
+        }	  
+    }	  
+  } catch (Exception $e) { 		    
+  	    $_SESSION['message'] = $e->GetMessage();	    
+  	    $_SESSION['type'] = 'danger';	  
+  }		  
+  close_database($database);	
 }
