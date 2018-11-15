@@ -217,7 +217,7 @@
 
                         <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
                         <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>       
-                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['nome']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
+                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
 
                   </td>
 
