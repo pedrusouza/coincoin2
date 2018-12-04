@@ -19,5 +19,5 @@
 		global $usuario;
 		$usuario = remove('usuarios', $id);
 
-		header('location: index.php');
+		header('location: clientes.php');
 	}

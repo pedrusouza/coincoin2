@@ -1,5 +1,5 @@
 <?php
-	require_once('functions.php');
+	require_once('../usuarios/functions.php');
 	index();
 ?>
 
@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CoinCoin | Lista de usuários</title>
+  <title>Transações</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -74,7 +74,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../assets/index3.html" class="brand-link">
-      <img src="coincoin.jpg"
+      <img src="../coincoin.jpg"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -122,7 +122,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../assets/pages/widgets.html" class="nav-link">
+            <a href="lojistas.php" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Lojistas
@@ -166,12 +166,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tabela de Usuários</h1>
+            <h1>Histórico de transações</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tabela de Usuários</li>
+              <li class="breadcrumb-item active">Transações</li>
             </ol>
           </div>
         </div>
@@ -184,7 +184,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Usuários Aprovados</h3>
+              <h3 class="card-title">Busque um usuário ou lojista</h3>
             </div>
             <!-- /.card-header -->
 
@@ -194,46 +194,14 @@
     		<?php echo $_SESSION['message']; ?>
     		</div>	
 		<?php clear_messages(); ?>
-	<?php endif; ?>
+	<?php endif; ?>  
+<?php if($usuarios) ?>
+  <form name="frmBusca" method="post" href="consulta.php?id=<?php echo $usuarios['id']; ?>" action= "?a=buscar"
+    <input type="text" name="palavra" />
+    <input type="submit"  value="Buscar" />
+</form>
 
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>CPF</th>
-                  <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php if ($usuarios) : ?>
-               	<?php foreach ($usuarios as $usuario) : ?>
-                <tr>
-                  <td><?php echo $usuario['nome']; ?></td>
-                  <td><?php echo $usuario['cpf']; ?></td>
-                  <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right"> 
-
-                        <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
-                        <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>       
-                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
-
-                  </td>
-
-                </tr>
-
-    <?php endforeach; ?>
-    <?php else : ?>
-    	<tr>
-    			<td colspan="6">Nenhum registro encontrado. </td>
-    	</tr>
-
-   	<?php endif; ?>
-   </tbody>
-</table>
-
- <?php include('modal.php'); ?>
+            
             </div>
             <!-- /.card-body -->
           </div>

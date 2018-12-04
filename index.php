@@ -36,7 +36,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Faça seu login</p>
 
-      <form action="usuarios/index.php" method="post">
+      <form action="usuarios/clientes.php" method="post">
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="Email">
           <span class="fa fa-envelope form-control-feedback"></span>
