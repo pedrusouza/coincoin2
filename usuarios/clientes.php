@@ -54,11 +54,9 @@
     </form>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+
       <!-- Messages Dropdown Menu -->
      
-     
-      </li>
       <!-- Notifications Dropdown Menu -->
       
       <li class="nav-item">
