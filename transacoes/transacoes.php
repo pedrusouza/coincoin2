@@ -195,9 +195,9 @@
     		</div>	
 		<?php clear_messages(); ?>
 	<?php endif; ?>  
-<?php if($usuarios) ?>
-  <form name="frmBusca" method="post" href="consulta.php?id=<?php echo $usuarios['id']; ?>" action= "?a=buscar"
-    <input type="text" name="palavra" />
+<!--<?php if($transacoes) ?> -->
+  <form name="frmBusca" method="post" href="consulta.php?id=<?php echo $usuarios['id']; ?>" action= "?a=buscar">
+    <input type="text" name="palavra" required/>
     <input type="submit"  value="Buscar" />
 </form>
 
