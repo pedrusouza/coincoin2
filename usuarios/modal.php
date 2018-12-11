@@ -1,5 +1,4 @@
 <!-- Modal de Delete-->	
-$id = $_GET['id'];
 <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">	 
     <div class="modal-dialog" role="document">	  
 		<div class="modal-content"> 
@@ -26,7 +25,7 @@ $id = $_GET['id'];
             <h4 class="modal-title" id="modalLabel">Adicionar CoinCoins</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
         </div>
-        <form action="insert-coin.php" method="POST" id="coins">
+        <form action="adicionar.php" method="POST" id="coins">
             <div class="modal-body">
                 <div class="form-group">
                     <label>Números de Coincoins a adicionar</label>
@@ -39,7 +38,7 @@ $id = $_GET['id'];
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary" >Enviar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             </div>
         </form>
