@@ -77,7 +77,7 @@ function remove( $table = null, $id = null ) {
         $sql = "DELETE FROM " . $table . " WHERE id = " . $id;	      
         $result = $database->query($sql);		      
 
-        if ($result = $database->query($sql)) {   		     
+        if ($result) {   		     
             $_SESSION['message'] = "Registro Removido com Sucesso.";	       
             $_SESSION['type'] = 'success';	
         }	  
@@ -97,7 +97,7 @@ function update_coins( $table = null, $id = null, $saldo = null) {
 		  $sql = "UPDATE " . $table . " SET `saldo`='$saldo', WHERE id = " . $id;	      
 		  $result = $database->query($sql);		      
   
-		  if ($result = $database->query($sql)) {   		     
+		  if ($result) {   		     
 			  $_SESSION['message'] = "Registro Removido com Sucesso.";	       
 			  $_SESSION['type'] = 'success';	
 		  }	  

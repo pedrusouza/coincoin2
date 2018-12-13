@@ -22,7 +22,7 @@
 		header('location: clientes.php');
 	}
 
-	function update ($id = null, $q_coins = null) {
+	function update ($q_coins = null, $id = null) {
 
 		global $usuario;
 		$usuario = update_coins('usuarios', $id, $q_coins);
