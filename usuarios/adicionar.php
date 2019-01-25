@@ -59,4 +59,6 @@ $novo_valor = $valor_antes + $qtd_coins;
 $sql = "UPDATE `usuarios` SET `saldo` = '$novo_valor' WHERE id = '$id'";
 mysqli_query($link, $sql);
 mysqli_query($link, $sql_saldo);
+$url = 'clientes.php';
+echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 ?>
