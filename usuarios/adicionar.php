@@ -31,10 +31,21 @@ class db {
 }
 
 $obj_db = new db;
-$link = $obj_db->conecta_mysql();
+$link = $obj_db->conecta_mysql(); 
+$id = $_GET['id'];  
 
-$qtd_coins = $_POST['Coincoins'];
-$id = $_GET['id'];
+$sql_saldo = " SELECT * FROM usuarios where id = '$id'";
+                $resultado_id = mysqli_query($link, $sql_saldo);
+                if($resultado_id){
+                while($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)){
+                        $valor_antes = $registro['saldo'];
+                    }
+                    }else{
+                        echo 'Erro na consulta';
+                    }
+
+//$qtd_coins = $_POST['Coincoins'];
+
 
 /*if (isset($qtd_coins)) {
     update(8.00, 84);
@@ -43,9 +54,9 @@ $id = $_GET['id'];
     }
 ?>*/
 
-$sql = "UPDATE `usuarios` SET `saldo` = '$qtd_coins' WHERE id = 84";
+$qtd_coins = $_POST['Coincoins'];
+$novo_valor = $valor_antes + $qtd_coins;
+$sql = "UPDATE `usuarios` SET `saldo` = '$novo_valor' WHERE id = '$id'";
 mysqli_query($link, $sql);
-echo($qtd_coins);
-echo($sql);
-echo($id);
+mysqli_query($link, $sql_saldo);
 ?>

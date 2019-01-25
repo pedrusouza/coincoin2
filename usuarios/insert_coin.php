@@ -1,6 +1,8 @@
 <?php
 	require_once('functions.php');
 	index();
+
+  $id = $_GET['id'];
 ?>
 
 
@@ -164,12 +166,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tabela de Usuários</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tabela de Usuários</li>
+              <li class="breadcrumb-item active"></li>
             </ol>
           </div>
         </div>
@@ -182,57 +182,28 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Usuários Aprovados</h3>
+              <h3 class="card-title">Inserir Moedas</h3>
             </div>
             <!-- /.card-header -->
 
-    <?php if (!empty($_SESSION['message'])) : ?>
-    	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">			<
-    		<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>			
-    		<?php echo $_SESSION['message']; ?>
-    		</div>	
-		<?php clear_messages(); ?>
-	<?php endif; ?>
-
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>CPF</th>
-                  <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php if ($usuarios) : ?>
-               	<?php foreach ($usuarios as $usuario) : ?>
-                <?php if(($usuario['privilegio']) == 0) : ?>
-                <tr>
-                  <td><?php echo $usuario['nome']; ?></td>
-                  <td><?php echo $usuario['cpf']; ?></td>
-                  <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right"> 
-                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
-                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>   
-                    <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
-                  </td>
-                </tr>
-              <?php endif; ?>
-    <?php endforeach; ?>
-    <?php else : ?>
-    	<tr>
-    			<td colspan="6">Nenhum registro encontrado.</td>
-    	</tr>
-
-   	<?php endif; ?>
-   </tbody>
-</table>
-
-
- <?php include('modal.php'); ?>
+            <form action="adicionar.php?id=<?php echo $id?>" method="POST" id="coins">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Números de Coincoins a adicionar</label>
+                    <input type="number" min="0.00" step="0.1" value='0.00' name="Coincoins" class="form-control" placeholder="COINCOIN">
+                        <!--<?php
+                            if($erro_email == 1){
+                            echo '<font style="color:#FF0000">Email não existe</font>';
+                            }
+                        ?>-->
+                </div>
             </div>
-            <!-- /.card-body -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" >Enviar</button>
+             <a href="clientes.php"><button type="button" class="btn btn-default" data-dismiss="">Cancelar</button><a>
+            </div>
+        </form>
+
           </div>
           <!-- /.card -->
         </div>
