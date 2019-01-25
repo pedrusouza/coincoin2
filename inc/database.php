@@ -82,19 +82,19 @@ function remove( $table = null, $id = null ) {
             $_SESSION['type'] = 'success';	
         }	  
     }	  
-  } catch (Exception $e) { 		    
+  } catch (Exception $e) {
   	    $_SESSION['message'] = $e->GetMessage();	    
   	    $_SESSION['type'] = 'danger';	  
   }		  
-  close_database($database);	
+  close_database($database);		  
 }
 
-function update_coins( $table = null, $id = null, $saldo = null) {		
+function update_coins( $table = null, $saldo = null, $id = null) {		
 	$database = open_database();			  
   
 	try {	  
 	  if ($id) {		
-		  $sql = "UPDATE " . $table . " SET `saldo`='$saldo', WHERE id = " . $id;	      
+		  $sql = "UPDATE " . $table . " SET `saldo`= '$saldo', WHERE id = ". $id;	      
 		  $result = $database->query($sql);		      
   
 		  if ($result) {   		     
@@ -104,7 +104,7 @@ function update_coins( $table = null, $id = null, $saldo = null) {
 	  }	  
 	} catch (Exception $e) { 		    
 			$_SESSION['message'] = $e->GetMessage();	    
-			$_SESSION['type'] = 'danger';	  
+			$_SESSION['type'] = 'danger';
 	}		  
 	close_database($database);	
   }

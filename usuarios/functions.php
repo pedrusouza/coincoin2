@@ -25,7 +25,7 @@
 	function update ($q_coins = null, $id = null) {
 
 		global $usuario;
-		$usuario = update_coins('usuarios', $id, $q_coins);
+		$usuario = update_coins('usuarios', $q_coins, $id);
 
 		header('location: clientes.php');
 	}
