@@ -1,11 +1,13 @@
-<?php require_once 'config.php'; ?>	
-<?php require_once DBAPI; ?>	
+<?php require_once 'config.php'; ?>
+<?php require_once DBAPI; ?>
 
 <?php
  		$db = open_database(); ?>
 
 <?php 		if ($db) : ?>
-
+<?php
+    $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,14 +37,18 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Faça seu login</p>
-
-      <form action="usuarios/clientes.php" method="post">
+      <?php //caso de redirecionamento no sucesso de registro
+          if($erro == 1){
+              echo '<font color="#FF0000">Usuário e ou senha inválido(s)</font>';
+          }
+      ?>
+      <form action="acesso.php" method="POST">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="Email">
           <span class="fa fa-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="Password">
           <span class="fa fa-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -61,7 +67,7 @@
         </div>
       </form>
 
-      
+
     <!-- /.login-card-body -->
   </div>
 </div>
@@ -85,9 +91,9 @@
 </body>
 </html>
 
-		
-<?php  			 else : ?> 
+
+<?php  			 else : ?>
 	<div class="alert alert-danger" role="alert">
-				<p><strong>ERRO:</strong> 
+				<p><strong>ERRO:</strong>
 				Não foi possível Conectar ao Banco de Dados!</p>		</div>
 <?php endif; ?>

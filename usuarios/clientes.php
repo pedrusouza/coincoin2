@@ -1,6 +1,11 @@
 <?php
 	require_once('functions.php');
 	index();
+	session_start();
+	$email =  $_SESSION['email'];
+	if(!isset($_SESSION['email'])){
+		header('Location: ../index.php?erro=1');
+	}
 ?>
 
 
@@ -56,9 +61,9 @@
     <!-- Right navbar links -->
 
       <!-- Messages Dropdown Menu -->
-     
+
       <!-- Notifications Dropdown Menu -->
-      
+
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
           <i class="fa fa-th-large"></i>
@@ -84,7 +89,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-        
+
         </div>
         <div class="info">
           <a href="#" class="d-block">Olá, César</a>
@@ -133,24 +138,24 @@
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Lojas
-          
+
               </p>
             </a>
-            
+
           </li>
                     <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Transações
-          
+
               </p>
             </a>
-            
+
           </li>
-        
-        
-          
+
+
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -188,9 +193,9 @@
 
     <?php if (!empty($_SESSION['message'])) : ?>
     	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">			<
-    		<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>			
+    		<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
     		<?php echo $_SESSION['message']; ?>
-    		</div>	
+    		</div>
 		<?php clear_messages(); ?>
 	<?php endif; ?>
 
@@ -212,9 +217,9 @@
                   <td><?php echo $usuario['nome']; ?></td>
                   <td><?php echo $usuario['cpf']; ?></td>
                   <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right"> 
-                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
-                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>   
+                  <td class="actions text-right">
+                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>
                     <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
                   </td>
                 </tr>
