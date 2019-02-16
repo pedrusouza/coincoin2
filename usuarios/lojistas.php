@@ -1,15 +1,12 @@
 <?php
 	require_once('functions.php');
-	include('modal.php');
 	index();
 	session_start();
 	$nome = $_SESSION['nome'];
 	if(!isset($_SESSION['email'])){
 		header('Location: ../index.php?erro=1');
-	}
+}
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,118 +27,15 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../assets/index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contato</a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <!--<form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>-->
-  </nav>
+	<?php require_once "../header.php" ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="clientes.php" class="brand-link">
-      <img src="../coincoin.jpg"
-           alt="CoinCoin Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">CoinCoin</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel">
-        <div class="image">
-
-        </div>
-				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-							<i class="fa fa-user"></i>
-              <p>
-               Olá <?php echo $nome ?>!
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a data-toggle="modal" data-target="#logout-modal" class="nav-link">
-                  <i class="fa fa-power-off nav-icon"></i>
-                  <p>Sair</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="clientes.php" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-               Usuários
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-th"></i>
-              <p>
-                Lojistas
-                <!--<span class="right badge badge-danger">New</span>-->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-pie-chart"></i>
-              <p>
-                Lojas
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-pie-chart"></i>
-              <p>
-                Transações
-              </p>
-            </a>
-          </li>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+	<?php require_once "../sidebar.php" ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -164,69 +58,82 @@
 
     <!-- Main content -->
     <section class="content">
-    	<div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Lojistas Cadastrados</h3>
-        </div>
-      	<!-- /.card-header -->
-    		<?php if (!empty($_SESSION['message'])) : ?>
-	    		<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-	    			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
-	    		<?php echo $_SESSION['message']; ?>
-	    		</div>
-					<?php clear_messages(); ?>
-				<?php endif; ?>
 
-      	<div class="card-body">
-        	<table id="example1" class="table table-bordered table-striped">
-            <thead>
-            	<tr>
-              	<th>Nome</th>
-                <th>CPF</th>
-                <th>Email</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-            	<?php if ($usuarios) : ?>
-	              <?php foreach ($usuarios as $usuario) : ?>
-		              <?php if(($usuario['privilegio']) == 1) : ?>
-		              <tr>
-		                <td><?php echo $usuario['nome']; ?></td>
-		                <td><?php echo $usuario['cpf']; ?></td>
-		                <td><?php echo $usuario['email']; ?></td>
-		                <td class="actions text-right">
-		                  <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-		                  <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>
-		                  <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['nome']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
-		                </td>
-		              </tr>
-		              <?php endif; ?>
-    						<?php endforeach; ?>
-    					<?php else : ?>
+			<div class="card">
+        <div class="card-header">
+        	<h3 class="card-title">Usuários Aprovados</h3>
+        </div>
+      <!-- /.card-header -->
+
+    	<?php if (!empty($_SESSION['message'])) : ?>
+    		<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">			<
+    			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+    			<?php echo $_SESSION['message']; ?>
+    		</div>
+				<?php clear_messages(); ?>
+			<?php endif; ?>
+
+      <div class="card-body">
+      	<table id="example1" class="table table-bordered table-striped">
+          <thead>
+          	<tr>
+          	<th>Nome</th>
+            <th>E-mail</th>
+            <th>CPF</th>
+            <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if ($usuarios) : ?>
+	           	<?php foreach ($usuarios as $usuario) : ?>
+		            <?php if(($usuario['privilegio']) == 1) : ?>
+		            <tr>
+		              <td><?php echo $usuario['nome']; ?></td>
+		              <td><?php echo $usuario['cpf']; ?></td>
+		              <td><?php echo $usuario['email']; ?></td>
+		              <td class="actions text-right">
+		                <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+		                <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>
+		                <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['nome']; ?>"> <i class="fa fa-trash"></i> Excluir </a>
+		              </td>
+		            </tr>
+		            <?php endif; ?>
+    					<?php endforeach; ?>
+    				<?php else : ?>
     					<tr>
     						<td colspan="6">Nenhum registro encontrado. </td>
     					</tr>
-   						<?php endif; ?>
-   					</tbody>
-					</table>
-        </div>
-        <!-- /.card-body -->
+   					<?php endif; ?>
+   				</tbody>
+				</table>
+ 			<?php include('modal.php'); ?>
       </div>
-          <!-- /.card -->
-    </section>
-    <!-- /.col -->
+      <!-- /.card-body -->
+    </div>
+  	<!-- /.card -->
   </div>
-      <!-- /.row -->
+  <!-- /.col -->
 </div>
-<!-- /.content-wrapper -->
+      <!-- /.row -->
+    </section>
+  	<!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="float-right d-none d-sm-block">
     <b>Version</b> 3.0.0-alpha
   </div>
   <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+  reserved.
 </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php echo BASEURL; ?>js/jquery-1.11.2.min.js"><\/script>')</script>
