@@ -4,7 +4,7 @@
 	session_start();
 	$nome = $_SESSION['nome'];
 	$saldo = $_SESSION['saldo'];
-	//$imagem = $_SESSION['imagem'];
+	$imagem = $_SESSION['imagem'];
 	if(!isset($_SESSION['email'])){
 		header('Location: ../index.php?erro=1');
 	}
@@ -84,21 +84,8 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel">
         <div class="image">
-
+					<img src="<?php $imagem ?>" class="user-image" alt="User Image">
         </div>
-        <!--<div class="info">
-					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-					<li class="nav-item has-treeview">
-          	<a class="d-block">Olá, <?php echo $nome ?>!</a>
-						<ul class="nav nav-treeview">
-							<a href="../assets/index.html" class="nav-link">
-								<i class="fa fa-circle-o nav-icon"></i>
-								<p>Usuários aprovados</p>
-							</a>
-						</ul>
-					</li>
-        </div>-->
-
 				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -110,7 +97,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a data-toggle="modal" data-target="#logout-modal" class="nav-link">
                   <i class="fa fa-power-off nav-icon"></i>
                   <p>Sair</p>
                 </a>
