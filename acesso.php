@@ -32,7 +32,7 @@
 	$Email = $_POST['Email'];
 	//$Senha = sha1($_POST['Password']);
   $Senha = '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe';
-	$sql = "SELECT id, nome, email, saldo, hash, privilegio FROM usuarios WHERE email = '$Email' AND hash = '$Senha' AND privilegio = '2'";
+	$sql = "SELECT id, nome, email, saldo, hash, imagem, privilegio FROM usuarios WHERE email = '$Email' AND hash = '$Senha' AND privilegio = '2'";
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 	$resultado_id = mysqli_query($link, $sql);
@@ -44,6 +44,7 @@
 			$_SESSION['nome'] = $dados_usuario['nome'];
 			//$_SESSION['cpf'] = $dados_usuario['cpf'];
 			$_SESSION['saldo'] = $dados_usuario['saldo'];
+			$_SESSION['imagem'] = $dados_usuario['imagem'];
       //$_SESSION['Senha'] = $dados_usuario['Senha'];
       header('Location: usuarios/clientes.php');
       } else {

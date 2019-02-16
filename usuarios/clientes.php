@@ -4,6 +4,7 @@
 	session_start();
 	$nome = $_SESSION['nome'];
 	$saldo = $_SESSION['saldo'];
+	//$imagem = $_SESSION['imagem'];
 	if(!isset($_SESSION['email'])){
 		header('Location: ../index.php?erro=1');
 	}
@@ -48,7 +49,7 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
+    <!-- SEARCH FORM
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -58,27 +59,19 @@
           </button>
         </div>
       </div>
-    </form>
+    </form>-->
 
     <!-- Right navbar links -->
 
       <!-- Messages Dropdown Menu -->
 
-      <!-- Notifications Dropdown Menu -->
-		<ul>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fa fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../assets/index3.html" class="brand-link">
+    <a href="clientes.php" class="brand-link">
       <img src="../coincoin.jpg"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
@@ -89,13 +82,41 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel">
         <div class="image">
 
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Olá, <?php echo $nome ?>! </a>
-        </div>
+        <!--<div class="info">
+					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<li class="nav-item has-treeview">
+          	<a class="d-block">Olá, <?php echo $nome ?>!</a>
+						<ul class="nav nav-treeview">
+							<a href="../assets/index.html" class="nav-link">
+								<i class="fa fa-circle-o nav-icon"></i>
+								<p>Usuários aprovados</p>
+							</a>
+						</ul>
+					</li>
+        </div>-->
+
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+							<i class="fa fa-user"></i>
+              <p>
+               Olá <?php echo $nome ?>!
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="fa fa-power-off nav-icon"></i>
+                  <p>Sair</p>
+                </a>
+              </li>
+            </ul>
+          </li>
       </div>
 
       <!-- Sidebar Menu -->

@@ -47,7 +47,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!--<form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -56,29 +56,14 @@
           </button>
         </div>
       </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-
-
-      </li>
-      <!-- Notifications Dropdown Menu -->
-
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fa fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
+    </form>-->
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../assets/index3.html" class="brand-link">
+    <a href="clientes.php" class="brand-link">
       <img src="../coincoin.jpg"
            alt="CoinCoin Logo"
            class="brand-image img-circle elevation-3"
@@ -242,11 +227,6 @@
     reserved.
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
