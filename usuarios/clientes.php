@@ -2,7 +2,8 @@
 	require_once('functions.php');
 	index();
 	session_start();
-	$email =  $_SESSION['email'];
+	$nome = $_SESSION['nome'];
+	$saldo = $_SESSION['saldo'];
 	if(!isset($_SESSION['email'])){
 		header('Location: ../index.php?erro=1');
 	}
@@ -29,6 +30,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -63,7 +65,7 @@
       <!-- Messages Dropdown Menu -->
 
       <!-- Notifications Dropdown Menu -->
-
+		<ul>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
           <i class="fa fa-th-large"></i>
@@ -92,7 +94,7 @@
 
         </div>
         <div class="info">
-          <a href="#" class="d-block">Olá, César</a>
+          <a href="#" class="d-block">Olá, <?php echo $nome ?>! </a>
         </div>
       </div>
 
@@ -129,7 +131,6 @@
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Lojistas
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
@@ -138,23 +139,17 @@
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Lojas
-
               </p>
             </a>
-
           </li>
-                    <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Transações
-
               </p>
             </a>
-
           </li>
-
-
 
       </nav>
       <!-- /.sidebar-menu -->
@@ -184,70 +179,66 @@
     <!-- Main content -->
     <section class="content">
 
-
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Usuários Aprovados</h3>
-            </div>
+    	<div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Usuários Aprovados</h3>
+        </div>
             <!-- /.card-header -->
 
-    <?php if (!empty($_SESSION['message'])) : ?>
-    	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">			<
-    		<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
-    		<?php echo $_SESSION['message']; ?>
+    		<?php if (!empty($_SESSION['message'])) : ?>
+    		<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">			<
+    			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+    			<?php echo $_SESSION['message']; ?>
     		</div>
-		<?php clear_messages(); ?>
-	<?php endif; ?>
+				<?php clear_messages(); ?>
+				<?php endif; ?>
 
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>CPF</th>
-                  <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php if ($usuarios) : ?>
-               	<?php foreach ($usuarios as $usuario) : ?>
-                <?php if(($usuario['privilegio']) == 0) : ?>
-                <tr>
-                  <td><?php echo $usuario['nome']; ?></td>
-                  <td><?php echo $usuario['cpf']; ?></td>
-                  <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right">
-                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>
-                    <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
-                  </td>
-                </tr>
-              <?php endif; ?>
-    <?php endforeach; ?>
-    <?php else : ?>
-    	<tr>
-    			<td colspan="6">Nenhum registro encontrado.</td>
-    	</tr>
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+              </tr>
+              </thead>
+              <tbody>
+              	<?php if ($usuarios) : ?>
+	               	<?php foreach ($usuarios as $usuario) : ?>
+		                <?php if(($usuario['privilegio']) == 0) : ?>
+		                <tr>
+		                  <td><?php echo $usuario['nome']; ?></td>
+		                  <td width="101"><?php echo $usuario['cpf']; ?></td>
+		                  <td><?php echo $usuario['email']; ?></td>
+		                  <td class="actions text-right" width="290">
+		                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+		                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>
+		                    <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
+		                  </td>
+		                </tr>
+		              	<?php endif; ?>
+	    						<?php endforeach; ?>
+    						<?php else : ?>
+    							<tr>
+    								<td colspan="6">Nenhum registro encontrado.</td>
+    							</tr>
+   							<?php endif; ?>
+   						</tbody>
+						</table>
 
-   	<?php endif; ?>
-   </tbody>
-</table>
-
-
- <?php include('modal.php'); ?>
-            </div>
-            <!-- /.card-body -->
+ 					<?php include('modal.php'); ?>
           </div>
-          <!-- /.card -->
+            <!-- /.card-body -->
         </div>
+          <!-- /.card -->
+		</section>
+			<!-- /.content -->
+  </div>
         <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0-alpha

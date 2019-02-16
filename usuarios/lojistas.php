@@ -2,6 +2,7 @@
 	require_once('functions.php');
 	index();
 	session_start();
+	$nome = $_SESSION['nome'];
 	if(!isset($_SESSION['email'])){
 		header('Location: ../index.php?erro=1');
 	}
@@ -93,7 +94,7 @@
 
         </div>
         <div class="info">
-          <a href="#" class="d-block">Olá, César</a>
+          <a href="#" class="d-block">Olá, <?php echo $nome?></a>
         </div>
       </div>
 
@@ -115,7 +116,7 @@
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Lojistas
-                <span class="right badge badge-danger">New</span>
+                <!--<span class="right badge badge-danger">New</span>-->
               </p>
             </a>
           </li>
@@ -173,7 +174,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Usuários Aprovados</h3>
+              <h3 class="card-title">Lojistas Cadastrados</h3>
             </div>
             <!-- /.card-header -->
 
@@ -190,8 +191,8 @@
                 <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>E-mail</th>
                   <th>CPF</th>
+                  <th>Email</th>
                   <th>Ações</th>
                 </tr>
                 </thead>
@@ -204,11 +205,9 @@
                   <td><?php echo $usuario['cpf']; ?></td>
                   <td><?php echo $usuario['email']; ?></td>
                   <td class="actions text-right">
-
                         <a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
                         <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir CoinCoins</a>
                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['nome']; ?>">         <i class="fa fa-trash"></i> Excluir </a>
-
                   </td>
                 </tr>
               <?php endif; ?>

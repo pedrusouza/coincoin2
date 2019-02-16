@@ -1,13 +1,12 @@
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
-
 <?php
- 		$db = open_database(); ?>
+require_once 'config.php';
+require_once DBAPI;
 
-<?php 		if ($db) : ?>
-<?php
-    $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
-  ?>
+$db = open_database();
+if ($db) :
+$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
