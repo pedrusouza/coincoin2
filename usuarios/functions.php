@@ -29,3 +29,11 @@
 
 		header('location: clientes.php');
 	}
+
+	function see ($id = null) {
+
+		global $usuario;
+		$saldo = view('usuarios', $id);
+		return $saldo;
+		header('location: clientes.php');
+	}

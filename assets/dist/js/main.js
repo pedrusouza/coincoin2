@@ -14,3 +14,26 @@ $('#insert-modal').on('show.bs.modal', function (event) {
   var modal = $(this);
   modal.find('#confirm').attr('href', 'adicionar.php?id=' + id);	 
 })
+
+$('#see-modal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var id = button.data('usuario');
+  var modal = $(this);
+  modal.find('.modal-title-view').text('Ver ID ' + id);
+  modal.find('#confirm').attr('href', 'see.php?id=' + id);	
+})
+
+$(document).ready(function(){
+  $('.view-data').click(function(){
+    var usuario_id = $($this).attr("id");
+    $.ajax({
+      url:"see.php",
+      method:"post",
+      data:{usuario_id:usuario_id},
+      success:function(data){
+        $('#saldo').html(data);
+        $('#see-modal').modal("show");
+      }
+    });
+  });
+});

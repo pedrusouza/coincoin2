@@ -190,7 +190,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Números de Coincoins a adicionar</label>
-                    <input type="number" min="0.00" step="0.1" value='0.00' name="Coincoins" class="form-control" placeholder="COINCOIN">
+                    <input type="number" min="0.00" step="0.1" name="Coincoins" class="form-control" placeholder="COINCOIN">
                         <!--<?php
                             if($erro_email == 1){
                             echo '<font style="color:#FF0000">Email não existe</font>';

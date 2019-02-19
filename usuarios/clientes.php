@@ -212,8 +212,8 @@
                   <td><?php echo $usuario['nome']; ?></td>
                   <td><?php echo $usuario['cpf']; ?></td>
                   <td><?php echo $usuario['email']; ?></td>
-                  <td class="actions text-right"> 
-                    <a href="view.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>        
+                  <td class="actions text-right">
+                    <a href="#"class="btn btn-sm btn-success view-data" data-toggle="modal" data-target="#see-modal" id="<?php echo $usuario['id']; ?>" data-usuario="<?php echo $usuario['id']; ?>"><i class="fa fa-eye"></i> Visualizar</a>        
                     <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>   
                     <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
                   </td>

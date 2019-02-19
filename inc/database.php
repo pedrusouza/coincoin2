@@ -73,7 +73,7 @@ function remove( $table = null, $id = null ) {
   $database = open_database();			  
 
   try {	  
-    if ($id) {		
+    if ($id) {
         $sql = "DELETE FROM " . $table . " WHERE id = " . $id;	      
         $result = $database->query($sql);		      
 
@@ -89,7 +89,7 @@ function remove( $table = null, $id = null ) {
   close_database($database);		  
 }
 
-function update_coins( $table = null, $saldo = null, $id = null) {		
+function update_coins( $table = null, $saldo = null, $id = null) {
 	$database = open_database();			  
   
 	try {	  
@@ -107,4 +107,34 @@ function update_coins( $table = null, $saldo = null, $id = null) {
 			$_SESSION['type'] = 'danger';
 	}		  
 	close_database($database);	
+  }
+
+  function view( $table = null, $id = null ) {		
+	$database = open_database();			  
+  
+	try {
+		if ($id) {
+			$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;	      
+			$result = $database->query($sql);		      
+			$output .= '
+			<div class="table-responsive">
+				<table class="table table-bordered">';
+				while($registro = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+					$output .= '
+						<tr>
+							<td><label>Saldo</label></td>
+							<td>'.$registro["saldo"].'</td>
+						</tr>
+					';
+				}
+				$output .= "</table></div>";
+				echo $output;
+			}else{
+				echo 'Erro na consulta';
+			}
+	} catch (Exception $e) {
+			$_SESSION['message'] = $e->GetMessage();	    
+			$_SESSION['type'] = 'danger';	  
+	}		  
+	close_database($database);		  
   }
