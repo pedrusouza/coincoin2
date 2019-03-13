@@ -74,7 +74,8 @@ function remove( $table = null, $id = null ) {
 
   try {	  
     if ($id) {
-        $sql = "DELETE FROM " . $table . " WHERE id = " . $id;	      
+		$sql = "DELETE FROM " . $table . " WHERE id = " . $id;
+        //$sql = "UPDATE " . $table . " SET `verificado`= '2', WHERE id = ". $id;   
         $result = $database->query($sql);		      
 
         if ($result) {   		     
@@ -94,7 +95,7 @@ function remove_logista( $table = null, $id = null ) {
   
 	try {	  
 	  if ($id) {
-		  $sql = "DELETE FROM " . $table . " WHERE id = " . $id;	      
+		  $sql = "UPDATE " . $table . " SET `verificado`= '2', WHERE id = ". $id;	      
 		  $result = $database->query($sql);		      
   
 		  if ($result) {   		     
