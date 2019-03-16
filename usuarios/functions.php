@@ -22,14 +22,6 @@
 		header('location: clientes.php');
 	}
 
-	function delete_logista ($id = null) {
-
-		global $usuario;
-		$usuario = remove_logista('usuarios', $id);
-
-		header('location: teste.php');
-	}
-
 	function update ($q_coins = null, $id = null) {
 
 		global $usuario;
