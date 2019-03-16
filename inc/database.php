@@ -90,26 +90,6 @@ function remove( $table = null, $id = null ) {
   close_database($database);		  
 }
 
-function remove_logista( $table = null, $id = null ) {		
-	$database = open_database();			  
-  
-	try {	  
-	  if ($id) {
-		  $sql = "UPDATE " . $table . " SET `verificado`= '2', WHERE id = ". $id;	      
-		  $result = $database->query($sql);		      
-  
-		  if ($result) {   		     
-			  $_SESSION['message'] = "Registro Removido com Sucesso.";	       
-			  $_SESSION['type'] = 'success';	
-		  }
-	  }	  
-	} catch (Exception $e) {
-			$_SESSION['message'] = $e->GetMessage();	    
-			$_SESSION['type'] = 'danger';	  
-	}		  
-	close_database($database);		  
-  }
-
 function update_coins( $table = null, $saldo = null, $id = null) {
 	$database = open_database();			  
   
