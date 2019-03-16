@@ -89,7 +89,7 @@
               <tbody>
               	<?php if ($usuarios) : ?>
 	               	<?php foreach ($usuarios as $usuario) : ?>
-		                <?php if(($usuario['privilegio']) == 0) : ?>
+		                <?php if(($usuario['privilegio']) == 0 && ($usuario['verificado']) == 1) : ?>
 		                <tr>
 		                  <td width="28%"><?php echo $usuario['nome']; ?></td>
 		                  <td width="14%"><?php echo $usuario['cpf']; ?></td>
