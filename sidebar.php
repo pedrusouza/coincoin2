@@ -21,7 +21,7 @@
           <a href="#" class="nav-link">
             <i class="fa fa-user"></i>
             <p>
-             Olá <?php echo $nome ?>!
+              Olá <?php echo $nome ?>!
               <i class="right fa fa-angle-left"></i>
             </p>
           </a>
@@ -41,50 +41,99 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
+
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-dashboard"></i>
+            <i class="nav-icon fa fa-male"></i>
             <p>
-             Usuários
+             Clientes
               <i class="right fa fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="clientes.php" class="nav-link">
-                <i class="fa fa-circle-o nav-icon"></i>
-                <p>Usuários aprovados</p>
+                <i class="fa fa-exclamation nav-icon"></i>
+                <p>Clientes aprovados</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="../assets/index2.html" class="nav-link">
-                <i class="fa fa-circle-o nav-icon"></i>
-                <p>Usuários a aprovar</p>
+              <a href="clientes_para_aprovar.php" class="nav-link">
+                <i class="fa fa-question nav-icon"></i>
+                <p>Clientes a aprovar</p>
               </a>
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="lojistas.php" class="nav-link">
-            <i class="nav-icon fa fa-th"></i>
-            <p>
-              Lojistas
-            </p>
-          </a>
-        </li>
+
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-trello"></i>
+            <p>
+              Lojistas
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="lojistas.php" class="nav-link">
+                <i class="fa fa-exclamation nav-icon"></i>
+                <p>Lojistas aprovados</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="lojistas_para_aprovar.php" class="nav-link">
+                <i class="fa fa-question nav-icon"></i>
+                <p>Lojistas a aprovar</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="nav-item has-treeview">
+          <a href="lojas.php" class="nav-link">
             <i class="nav-icon fa fa-pie-chart"></i>
             <p>
               Lojas
             </p>
           </a>
         </li>
+        
+        
+        
+        
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-pie-chart"></i>
+            <i class="nav-icon fa fa-trash"></i>
             <p>
-              Transações
+              Lixeira
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="excluir-definitivo-cliente.php" class="nav-link">
+                <i class="fa fa-male nav-icon"></i>
+                <p>Clientes a excluir</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="excluir-definitivo-lojista.php" class="nav-link">
+                <i class="fa fa-trello nav-icon"></i>
+                <p>Lojistas a excluir</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="adms.php" class="nav-link">
+            <i class="nav-icon fa fa-star"></i>
+            <p>
+              Administradores
             </p>
           </a>
         </li>

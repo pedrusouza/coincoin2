@@ -16,7 +16,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CoinCoin | Lista de clientes</title>
+  <title>CoinCoin | Lista de clientes a excluir</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@
 
     	<div class="card">
         <div class="card-header">
-          <h3 class="card-title">Clientes Aprovados</h3>
+          <h3 class="card-title">Clientes para exclusão definitiva</h3>
         </div>
             <!-- /.card-header -->
     		<?php if (!empty($_SESSION['message'])) : ?>
@@ -89,15 +89,13 @@
               <tbody>
               	<?php if ($usuarios) : ?>
 	               	<?php foreach ($usuarios as $usuario) : ?>
-		                <?php if(($usuario['privilegio']) == 0 && ($usuario['verificado']) == 1) : ?>
+		                <?php if(($usuario['privilegio']) == 0 && ($usuario['verificado']) == 2) : ?>
 		                <tr>
 		                  <td width="28%"><?php echo $usuario['nome']; ?></td>
 		                  <td width="14%"><?php echo $usuario['cpf']; ?></td>
 		                  <td width="26%"><?php echo $usuario['email']; ?></td>
 		                  <td class="actions text-right" width="32%">
-                      <a href="#"class="btn btn-sm btn-success view-data" data-toggle="modal" data-target="#see-modal" data-whateversaldo="<?php echo $usuario['saldo']; ?>" data-whatevernome="<?php echo $usuario['nome']; ?>" id="<?php echo $usuario['id']; ?>" data-usuario="<?php echo $usuario['id']; ?>"><i class="fa fa-eye"></i> Visualizar</a>        
-		                    <a href="insert_coin.php?id=<?php echo $usuario['id'];?> "class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Inserir Coincoins</a>
-		                    <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal" data-usuario="<?php echo $usuario['id']; ?>"> Excluir</a>
+                        <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal-cliente-definitivo" data-usuario="<?php echo $usuario['id']; ?>"> Excluir definitivamente</a>
 		                  </td>
 		                </tr>
 		              	<?php endif; ?>
@@ -110,7 +108,7 @@
    						</tbody>
 						</table>
 
- 					<?php include('modal_clientes.php'); ?>
+ 					<?php include('modal_para_deletar_cliente.php'); ?>
           </div>
           </div>
             <!-- /.card-body -->

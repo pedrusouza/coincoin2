@@ -74,9 +74,9 @@ function remove( $table = null, $id = null ) {
 
   try {	  
     if ($id) {
-		$sql = "DELETE FROM " . $table . " WHERE id = " . $id;
-        //$sql = "UPDATE " . $table . " SET `verificado`= '2', WHERE id = ". $id;   
-        $result = $database->query($sql);		      
+		//$sql = "DELETE FROM " . $table . " WHERE id = " . $id;
+        $sql = "UPDATE " . $table . " SET `verificado`= '2' WHERE id = ". $id;   
+        $result = $database->query($sql);
 
         if ($result) {   		     
             $_SESSION['message'] = "Registro Removido com Sucesso.";	       
@@ -89,6 +89,51 @@ function remove( $table = null, $id = null ) {
   }		  
   close_database($database);		  
 }
+
+function remove_definitivo( $table = null, $id = null ) {		
+	$database = open_database();			  
+  
+	try {	  
+	  if ($id) {
+		  $sql = "DELETE FROM " . $table . " WHERE id = " . $id;
+		  //$sql = "UPDATE " . $table . " SET `verificado`= '2' WHERE id = ". $id;   
+		  $result = $database->query($sql);
+  
+		  if ($result) {		     
+			  $_SESSION['message'] = "Registro Removido com Sucesso.";	       
+			  $_SESSION['type'] = 'success';	
+		  }
+		  else
+		  	echo ("Remova a(s) loja(s) ligadas a este lojista antes de excluí-lo.");
+	  }	  
+	} catch (Exception $e) {
+			$_SESSION['message'] = $e->GetMessage();	    
+			$_SESSION['type'] = 'danger';	  
+	}		  
+	close_database($database);		  
+  }
+
+function remove_loja_definitivo( $table = null, $id = null ) {		
+	$database = open_database();			  
+  
+	try {	  
+	  if ($id) {
+		  $sql = "DELETE FROM " . $table . " WHERE cnpj = " . $id;
+		  $result = $database->query($sql);
+  
+		  if ($result) {		     
+			  $_SESSION['message'] = "Registro Removido com Sucesso.";	       
+			  $_SESSION['type'] = 'success';	
+		  }
+		  else
+		  	echo ("Remova a(s) loja(s) ligadas a este lojista antes de excluí-lo.");
+	  }	  
+	} catch (Exception $e) {
+			$_SESSION['message'] = $e->GetMessage();	    
+			$_SESSION['type'] = 'danger';	  
+	}		  
+	close_database($database);		  
+  }
 
 function update_coins( $table = null, $saldo = null, $id = null) {
 	$database = open_database();			  

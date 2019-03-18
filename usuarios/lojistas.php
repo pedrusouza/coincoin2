@@ -12,7 +12,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CoinCoin | Lista de usuários</title>
+  <title>CoinCoin | Lista de Lojistas</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,12 +44,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tabela de Usuários</h1>
+            <h1>Tabela de Lojistas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tabela de Usuários</li>
+              <li class="breadcrumb-item active">Tabela de Lojistas</li>
             </ol>
           </div>
         </div>
@@ -61,7 +61,7 @@
 
 			<div class="card">
         <div class="card-header">
-        	<h3 class="card-title">Usuários Aprovados</h3>
+        	<h3 class="card-title">Lojistas aprovados</h3>
         </div>
       <!-- /.card-header -->
 
@@ -86,7 +86,7 @@
           <tbody>
             <?php if ($usuarios) : ?>
 	           	<?php foreach ($usuarios as $usuario) : ?>
-		            <?php if(($usuario['privilegio']) == 1) : ?>
+		            <?php if(($usuario['privilegio']) == 1 && ($usuario['verificado']) == 1) : ?>
 		            <tr>
 		              <td><?php echo $usuario['nome']; ?></td>
 		              <td><?php echo $usuario['cpf']; ?></td>
@@ -125,11 +125,6 @@
   <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
   reserved.
 </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
