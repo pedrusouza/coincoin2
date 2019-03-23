@@ -1,7 +1,7 @@
 <?php
     require_once('functions.php');
     index();
-	index_lojas();
+	  index_lojas();
 	session_start();
 	$nome = $_SESSION['nome'];
 	$saldo = $_SESSION['saldo'];
@@ -82,29 +82,24 @@
               <thead>
               <tr>
                 <th>Nome</th>
-                <th>Responsável</th>
+                <!--<th>Responsável</th>-->
                 <th>CNPJ</th>
                 <!--<th>Promoção</th>-->
                 <th>Ações</th>
               </tr>
               </thead>
               <tbody>
-              	<?php if ($usuarios) : ?>
                   <?php if ($lojas) : ?>
-	               	<?php foreach ($usuarios as $usuario) : ?>
                         <?php foreach ($lojas as $loja) : ?>
                             <tr>
                             <td width="28%"><?php echo $loja['nome_est']; ?></td>
-                            <td width="14%"><?php echo $usuario['nome']; ?></td>
-                            <td width="26%"><?php echo $loja['cnpj']; ?></td>
-                            <td class="actions text-right" width="32%">
+                            <td width="35%"><?php echo $loja['cnpj']; ?></td>
+                            <td class="actions text-right" width="10%">
                                 <a href="#" class="btn btn-sm btn-danger" class="fa fa-pencil" data-toggle="modal" data-target="#delete-modal-lojas" data-usuario="<?php echo $loja['cnpj']; ?>"> Excluir</a>
                             </td>
                             </tr>
                         <?php endforeach; ?>
-	    			<?php endforeach; ?>
                   <?php endif; ?>
-                <?php endif; ?>
    			  </tbody>
 			</table>
 

@@ -4,6 +4,8 @@
 
 	$usuarios = null;
 	$usuario = null;
+	$lojas = null;
+	$responsavel = null;
 	/**	 *  Listagem de Clientes	 */	
 
 	function index() {
@@ -12,10 +14,20 @@
 			$usuarios = find_all('usuarios');
 }
 
+	/**	 *  Listagem de Clientes	 */	
+
 	function index_lojas() {
 
-		global $usuarios;
+		global $lojas;
 		$lojas = find_all('loja');
+	}
+
+	/* Exclusão de um usuário */
+
+	function find_user($id = null ) {
+
+		global $responsavel;
+		$responsavel = find_user_loja('loja', $id = null );
 	}
 
 	/* Exclusão de um usuário */

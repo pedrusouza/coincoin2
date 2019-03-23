@@ -64,6 +64,43 @@ function find($table = null, $id = null ) {
 	return $found;
 }
 
+function find_user_loja($table = null, $id = null ) {
+
+	$database = open_database();
+	$found = null;
+
+	try {
+		if($id) {
+			$sql = "SELECT * FROM ".$table." WHERE usuarios_id = ".$id;
+			$result = $database->query($sql);
+
+		if($result->num_rows > 0) {
+
+			$found = $result->fetch_assoc();
+		}
+
+	} else {
+
+		$sql = "SELECT * FROM ".$table;
+		$result = $database->query($sql);
+
+		if($result->num_rows > 0) {
+
+	        $found = array();	
+
+	        while ($row = $result->fetch_assoc()) {	          
+	        	array_push($found, $row);	        } 
+		}
+	}
+	} catch (Exception $e) {
+		$_SESSION['message'] = $e->GetMessage();
+		$_SESSION['type'] = 'danger';
+	}
+
+	close_database($database);
+	return $found;
+}
+
 function find_all( $table ) {
 
 	return find($table);

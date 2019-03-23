@@ -295,7 +295,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `email`, `telefone`, `saldo`, `verificado`, `imagem`, `privilegio`, `create`, `hash`) VALUES
 (1, 'Phelipe Resende', '103.463.536-02', 'phelipeuni@gmail.com', '(12) 22222-2222', '1000.00', 1, 'default_image.jpg', 2, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
-(2, 'Tales carlos', '064.927.791-00', 'adr.tales@gmail.com', '(12) 22222-2222', '77.00', 1, 'img-1543874984.png', 0, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
+(2, 'Tales', '064.927.791-00', 'adr.tales@gmail.com', '(12) 22222-2222', '77.00', 1, 'img-1543874984.png', 2, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
 (3, 'Pt', '377.135.816-77', 'pt@gmail.com', '(12) 3422-3211', '0.00', 0, 'default_image.jpg', 1, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
 (4, 'Paulo', '018.894.061-80', 'euzinho@gmail.com', '(12) 6666-3211', '2081.00', 1, 'default_image.jpg', 0, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
 (5, 'Top', '860.123.129-20', 'meninotop@gmail.com', '(12) 6664-3211', '200.00', 1, 'default_image.jpg', 0, '2018-02-21 03:11:45', '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe'),
@@ -404,7 +404,7 @@ INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `email`, `telefone`, `saldo`, `veri
 (111, 'Heitor Magalhães Vieira', '052.045.031-02', 'heitor.vieira@engnetconsultoria.com.br', '(61) 99991-3175', '0.00', 1, 'img-1540414435.png', 0, '2018-10-19 16:07:59', '$2y$10$Xo02U2oU9BQYPxHfQRVqCuMCt1z86h1Zff1JgpomJWnf2w3WAWX/C'),
 (112, 'Henrique Vasconcelos ', '042.708.491-18', 'henrique.oliveira@engnetconsultoria.com.br', '(61) 99810-1273', '0.00', 1, 'img-1541495411.png', 0, '2018-10-19 16:59:29', '$2y$10$fvZNhvbYVbWmYdXLpr9BVO57mMFp7c3JfKgJTOWpRmFQxonqFH286'),
 (113, 'Jethro', '051.700.247-70', 'jetbezerra@gmail.com', '(61) 98301-8859', '1200.00', 1, 'default_image.jpg', 0, '2018-10-27 14:37:23', '$2y$10$gv0Um4mzeOnEugu8kohPzOdkH6iGB.ha3bKwK5WdeZOrTu6FRl2q.'),
-(114, 'Cezar', '901.909.391-68', 'kaisarjr@gmail.com', '(62) 99844-1122', '0.00', 1, 'default_image.jpg', 1, '2018-10-27 14:56:02', '$2y$10$7AyaJ5aDpv271ot7nOXkYuww9lllGPSmz.VvL0WyVeS3yT8nvOeLi'),
+(114, 'Cezar', '901.909.391-68', 'administrador@admcoincoin.com', '(62) 99844-1122', '0.00', 1, 'default_image.jpg', 2, '2018-10-27 14:56:02', '$2y$10$7AyaJ5aDpv271ot7nOXkYuww9lllGPSmz.VvL0WyVeS3yT8nvOeLi'),
 (115, 'Diretor De Projetos', '149.487.430-03', 'projetos@engnetconsultoria.com.br', '(61) 99114-1679', '0.00', 1, 'default_image.jpg', 0, '2018-11-06 13:40:06', '$2y$10$93.Kzjxqg3MD.GLplslK5umvM/PU581/EVnjZqp/ybv5K7w2aivCO'),
 (116, 'Paulo', '254.624.230-04', 'paulo.thiago.98@gmail.com', '(61) 99114-1679', '0.00', 0, 'default_image.jpg', 1, '2018-11-12 21:26:18', '$2y$10$fgGVEo3jXrvqCy4tv8vIQua8jGGiX8glk7CvbxOa8qlTEd8F1gfEi'),
 (117, 'Paulo Boa', '141.625.820-50', 'paulo.mascarenhas@engnetconsultoria.com.br', '(61) 99114-1679', '0.00', 1, 'default_image.jpg', 1, '2018-11-23 14:17:02', '$2y$10$PB9hcILsfc68aQsorcoMMuQmjg1ZwsHonNyme4YHF3DqV.cS2VELa'),
