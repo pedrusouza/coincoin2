@@ -30,21 +30,19 @@
   }
 }
 	$Email = $_POST['Email'];
-	//$Senha = sha1($_POST['Password']);
-  $Senha = '$2y$10$So42FM6LdPfTe9aExfvCg.gr1z7l1F1a2JGXSf9BWHs75s0UBOdCe';
-	$sql = "SELECT id, nome, email, saldo, hash, imagem, privilegio FROM usuarios WHERE email = '$Email' AND hash = '$Senha' AND privilegio = '2'";
+	$Sen = $_POST['Password'];
+	$sql = "SELECT id, nome, email, saldo, imagem, privilegio, hash FROM usuarios WHERE email = '$Email' AND privilegio = '2'";
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 	$resultado_id = mysqli_query($link, $sql);
 	$dados_usuario = mysqli_fetch_array($resultado_id);
-		if(isset($dados_usuario['email'])){
+		if(isset($dados_usuario['email']) && password_verify($_POST["Password"],$dados_usuario['hash'])){
 
       //$_SESSION['id_usuario'] = $dados_usuario['id'];
       $_SESSION['email'] = $dados_usuario['email'];
 			$_SESSION['nome'] = $dados_usuario['nome'];
 			//$_SESSION['cpf'] = $dados_usuario['cpf'];
 			$_SESSION['saldo'] = $dados_usuario['saldo'];
-			$_SESSION['imagem'] = $dados_usuario['imagem'];
       //$_SESSION['Senha'] = $dados_usuario['Senha'];
       header('Location: usuarios/clientes.php');
       } else {
